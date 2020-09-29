@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #ADDED FOR CHAT APP
+    # ADDED FOR CHAT APP
     'channels',
     'geosmart_club_chat',
 ]
@@ -72,7 +71,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'communication.wsgi.application'
 
-#New configuration for channels
+# New configuration for channels
 ASGI_APPLICATION = "communication.routing.application"
 CHANNEL_LAYERS = {
     'default': {
@@ -88,14 +87,13 @@ CHANNEL_LAYERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'communication_db',# os.environ.get('DB_NAME'),
-        'USER': 'root', #os.environ.get('DB_USER'),
-        'PASSWORD': 'root', #os.environ.get('DB_PASSWORD'),
-        'HOST': '127.0.0.1', #os.environ.get('DB_HOST'),
-        'PORT': 3306, #os.environ.get('DB_PORT'),
+        'NAME': 'communication_db',  # os.environ.get('DB_NAME'),
+        'USER': 'root',  # os.environ.get('DB_USER'),
+        'PASSWORD': 'root',  # os.environ.get('DB_PASSWORD'),
+        'HOST': '127.0.0.1',  # os.environ.get('DB_HOST'),
+        'PORT': 3306,  # os.environ.get('DB_PORT'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -115,7 +113,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -129,8 +126,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]

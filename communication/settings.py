@@ -25,7 +25,7 @@ SECRET_KEY = 'c#_nc6r2=irau@1ia=$*13(f)(s62_aws9s$xs)1h0_(qd%s01'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 

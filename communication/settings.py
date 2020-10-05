@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     # ADDED FOR CHAT APP
     'channels',
     'geosmart_club_chat',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -93,6 +94,14 @@ DATABASES = {
         'HOST': os.environ.get('DB_HOST'), #'127.0.0.1',
         'PORT': os.environ.get('DB_PORT'), # 3306,
     }
+    #  'default': {
+    #      'ENGINE': 'django.db.backends.mysql',
+    #      'NAME': 'communication_db',
+    #      'USER': 'root',
+    #      'PASSWORD': 'root',
+    #      'HOST': '127.0.0.1',
+    #      'PORT': 3306,
+    # }
 }
 
 # Password validation

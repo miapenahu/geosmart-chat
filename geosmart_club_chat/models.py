@@ -20,7 +20,7 @@ class Message(models.Model):
         return Message.objects.order_by('-timestamp').all()[:15]
 
 class Chat(models.Model):
-    participants = models.ManyToManyField(Contact,related_name='chats')
+    participantes = models.ManyToManyField(Contact, related_name='chats')
     messages = models.ManyToManyField(Message,blank=True)
 
     def __str__(self):
